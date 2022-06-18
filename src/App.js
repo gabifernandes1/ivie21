@@ -8,6 +8,9 @@ import Seta from './seta.png';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import InputMask from 'react-input-mask';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import Fingerprint from '@mui/icons-material/Fingerprint';
 
 export default function App() {
 	const [pagina, setPagina] = useState(false);
@@ -16,6 +19,8 @@ export default function App() {
 	}
 	const [checked, setChecked] = React.useState(false);
 	const [checked2, setChecked2] = React.useState(false);
+	const [checked3, setChecked3] = React.useState(false);
+	const [checked4, setChecked4] = React.useState(false);
 	const [user, setUser] = React.useState({});
 
 	function handleChange() {
@@ -24,18 +29,13 @@ export default function App() {
 	function handleChange2() {
 		setChecked2(true);
 	}
-
-	function PhoneInput(props) {
-		return (
-			<InputMask
-				mask="(+1) 999 999 9999"
-				value={props.value}
-				onChange={props.onChange}
-			></InputMask>
-		);
+	function handleChange3() {
+		setChecked3(true);
 	}
-	const [phone, setPhone] = useState('');
-	const handleInput = ({ target: { value } }) => setPhone(value);
+	function handleChange4() {
+		setChecked4(true);
+	}
+
 	return (
 		<div className="App">
 			<div className="logo">
@@ -48,7 +48,6 @@ export default function App() {
 					<img className="seta-animation" src={Seta} height="30%" />
 				</div>
 			)}
-
 			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
 				<div id="pagina2">
 					<img src={Logo} width="40%" />
@@ -66,13 +65,32 @@ export default function App() {
 					{checked2 ? (
 						''
 					) : (
-						<div className="seta" onClick={handleChange2}>
+						<div className="seta" onClick={handleChange3}>
 							<img className="seta-animation" src={Seta} height="30%" />
 						</div>
 					)}
 				</div>
 			</Slide>
-
+			<Slide direction="up" in={checked3} mountOnEnter unmountOnExit>
+				<div id="pagina4">
+					<div id="left">
+						<IconButton aria-label="fingerprint" color="success" disabled>
+							<div id="option">
+								<Fingerprint />
+								<p>NÃO VOU</p>
+							</div>
+						</IconButton>
+					</div>
+					<div id="right" onClick={handleChange2}>
+						<IconButton aria-label="fingerprint" disabled>
+							<div id="option">
+								<Fingerprint />
+								<p>VOU</p>
+							</div>
+						</IconButton>
+					</div>
+				</div>
+			</Slide>
 			<Slide direction="up" in={checked2} mountOnEnter unmountOnExit>
 				<div id="pagina3">
 					{/* <img src={Logo} width="60%" />
