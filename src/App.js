@@ -11,6 +11,7 @@ import InputMask from 'react-input-mask';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 
 export default function App() {
 	const [pagina, setPagina] = useState(false);
@@ -38,16 +39,26 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<div className="logo">
-				<img src={Fundo} width="60%" />
-			</div>
-			{checked ? (
-				''
-			) : (
-				<div className="seta" onClick={handleChange}>
-					<img className="seta-animation" src={Seta} height="30%" />
+			<ReactScrollWheelHandler
+				downHandler={() => {
+					setChecked(true);
+				}}
+				customStyle={{
+					width: '150%',
+					height: '100vh',
+				}}
+			>
+				<div className="logo">
+					<img src={Fundo} width="60%" />
 				</div>
-			)}
+				{checked ? (
+					''
+				) : (
+					<div className="seta" onClick={handleChange}>
+						<img className="seta-animation" src={Seta} height="30%" />
+					</div>
+				)}
+			</ReactScrollWheelHandler>
 			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
 				<div id="pagina2">
 					<img src={Logo} width="40%" />

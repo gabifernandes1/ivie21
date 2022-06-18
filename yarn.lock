@@ -8034,6 +8034,11 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
+"react-scroll-wheel-handler@^2.2.0":
+  "integrity" "sha512-x1OqSyF5qzCEvX2C3Rgfm6BoOMwuV4JJezBZEkRkaMe0cnb9xrnsoYtwrKIJ+J1zRy3dZESoHdoAtepzW+xtKA=="
+  "resolved" "https://registry.npmjs.org/react-scroll-wheel-handler/-/react-scroll-wheel-handler-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-transition-group@^4.4.2":
   "integrity" "sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg=="
   "resolved" "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.2.tgz"
