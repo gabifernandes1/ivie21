@@ -21,98 +21,125 @@ export default function App() {
 	const [checked, setChecked] = React.useState(false);
 	const [checked2, setChecked2] = React.useState(false);
 	const [checked3, setChecked3] = React.useState(false);
-	const [checked4, setChecked4] = React.useState(false);
+	const [checked4, setChecked4] = React.useState(true);
 	const [user, setUser] = React.useState({});
 
 	function handleChange() {
 		setChecked(true);
+		setChecked4(false);
 	}
 	function handleChange2() {
 		setChecked2(true);
+		setChecked3(false);
 	}
 	function handleChange3() {
 		setChecked3(true);
-	}
-	function handleChange4() {
-		setChecked4(true);
+		setChecked(false);
 	}
 
 	return (
 		<div className="App">
-			<ReactScrollWheelHandler
-				downHandler={() => {
-					setChecked(true);
-				}}
-				customStyle={{
-					width: '150%',
-					height: '100vh',
-				}}
-			>
-				<div className="logo">
-					<img src={Fundo} width="60%" />
-				</div>
-				{checked ? (
-					''
-				) : (
-					<div className="seta" onClick={handleChange}>
-						<img className="seta-animation" src={Seta} height="30%" />
+			{checked4 ? (
+				<ReactScrollWheelHandler
+					downHandler={() => {
+						handleChange();
+					}}
+					customStyle={{
+						width: '150%',
+						height: '100vh',
+					}}
+				>
+					<div className="logo">
+						<img src={Fundo} width="60%" />
 					</div>
-				)}
-			</ReactScrollWheelHandler>
-			<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
-				<div id="pagina2">
-					<img src={Logo} width="40%" />
-					<div id="form">
-						<p>Digite seu nome completo:</p>
-						<TextField id="standard-basic" variant="standard" />
-
-						<p>Digite seu telefone:</p>
-						<TextField
-							placeholder="(11) 99999-9999"
-							id="standard-basic"
-							variant="standard"
-						/>
-					</div>
-					{checked2 ? (
+					{checked ? (
 						''
 					) : (
-						<div className="seta" onClick={handleChange3}>
+						<div className="seta" onClick={handleChange}>
 							<img className="seta-animation" src={Seta} height="30%" />
 						</div>
 					)}
-				</div>
-			</Slide>
-			<Slide direction="up" in={checked3} mountOnEnter unmountOnExit>
-				<div id="pagina4">
-					<div id="left">
-						<IconButton aria-label="fingerprint" color="success" disabled>
-							<div id="option">
-								<Fingerprint />
-								<p>NÃO VOU</p>
+				</ReactScrollWheelHandler>
+			) : (
+				''
+			)}
+			{checked ? (
+				<ReactScrollWheelHandler
+					downHandler={() => {
+						handleChange3();
+					}}
+					customStyle={{
+						width: '150%',
+						height: '100vh',
+					}}
+				>
+					<Slide direction="up" in={checked} mountOnEnter unmountOnExit>
+						<div id="pagina2">
+							<img src={Logo} width="40%" />
+							<div id="form">
+								<p>Digite seu nome completo:</p>
+								<TextField id="standard-basic" variant="standard" />
+
+								<p>Digite seu telefone:</p>
+								<TextField
+									placeholder="(11) 99999-9999"
+									id="standard-basic"
+									variant="standard"
+								/>
 							</div>
-						</IconButton>
+							{checked2 ? (
+								''
+							) : (
+								<div className="seta" onClick={handleChange3}>
+									<img className="seta-animation" src={Seta} height="30%" />
+								</div>
+							)}
+						</div>
+					</Slide>
+				</ReactScrollWheelHandler>
+			) : (
+				''
+			)}
+			{checked3 ? (
+				<Slide direction="up" in={checked3} mountOnEnter unmountOnExit>
+					<div id="pagina4">
+						<div id="left">
+							<IconButton aria-label="fingerprint" color="success" disabled>
+								<div id="option">
+									<Fingerprint />
+									<p>NÃO VOU</p>
+								</div>
+							</IconButton>
+						</div>
+						<div id="right" onClick={handleChange2}>
+							<IconButton aria-label="fingerprint" disabled>
+								<div id="option">
+									<Fingerprint />
+									<p>VOU</p>
+								</div>
+							</IconButton>
+						</div>
 					</div>
-					<div id="right" onClick={handleChange2}>
-						<IconButton aria-label="fingerprint" disabled>
-							<div id="option">
-								<Fingerprint />
-								<p>VOU</p>
-							</div>
-						</IconButton>
-					</div>
-				</div>
-			</Slide>
-			<Slide direction="up" in={checked2} mountOnEnter unmountOnExit>
-				<div id="pagina3">
-					{/* <img src={Logo} width="60%" />
+				</Slide>
+			) : (
+				''
+			)}
+
+			{checked2 ? (
+				<Slide direction="up" in={checked2} mountOnEnter unmountOnExit>
+					<div id="pagina3">
+						{/* <img src={Logo} width="60%" />
 					<img src={qr} width="60%" /> */}
-					<img src={Individual} width="60%" />
-					<p>
-						Este é seu convite! <br />
-						Obrigatório apresentar documento com foto.
-					</p>
-				</div>
-			</Slide>
+						<img src={Individual} width="60%" />
+						<p>
+							Este é seu convite! <br />
+							Obrigatório apresentar documento com foto.
+						</p>
+					</div>
+				</Slide>
+			) : (
+				''
+			)}
 		</div>
 	);
 }

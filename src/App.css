@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 .App {
-	overflow: hidden;
+	overflow-y: hidden;
 	height: 85vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Open Sans', sans-serif;
-	overflow: scroll;
+	overflow-y: hidden;
 }
 .logo {
 	display: flex;
@@ -15,7 +15,7 @@
 	align-items: center;
 	padding-top: 20px;
 	height: 80%;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 .seta {
 	padding-top: 30px;
@@ -31,8 +31,10 @@
 	animation-iteration-count: infinite;
 }
 #pagina2 {
+	overflow-y: hidden;
+
 	background-color: white;
-	height: 100vh;
+	height: 90%;
 	width: 100vw;
 	position: absolute;
 	display: flex;
@@ -76,13 +78,15 @@
 	font-family: 'Open Sans', sans-serif;
 }
 #pagina3 {
+	overflow-y: hidden;
+
 	height: 100%;
 	width: 100vw;
 	background-color: white;
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+	overflow-y: hidden;
 	justify-content: center;
 	align-items: center;
 }
@@ -115,11 +119,13 @@
 	align-items: center;
 } */
 #pagina4{
+	overflow-y: hidden;
+
 	height: 100%;
 	width: 100vw;
 	position: absolute;
 	display: flex;
-	overflow: hidden;
+	overflow-y: hidden;
 	justify-content: center;
 	align-items: center;
 	
@@ -130,6 +136,9 @@
 	width: 50%;
 	display: flex;
 	justify-content: center;
+	overflow: hidden;
+
+
 }
 #pagina4 #right{
 	background-color: white;
@@ -137,6 +146,8 @@
 	width: 50%;
 	display: flex;
 	justify-content: center;
+	overflow: hidden;
+
 }
 
 #pagina3 p{
