@@ -138,15 +138,19 @@
 	display: flex;
 	justify-content: center;
 }
-.css-1r6h6t4-MuiButtonBase-root-MuiIconButton-root{
-	color: white !important;
-} 
-.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
-	color: black !important;
-}
-.css-78trlr-MuiButtonBase-root-MuiIconButton-root.Mui-disabled{
-	color: black;
-}
+
 #pagina3 p{
 
+}
+#right .css-i4bv87-MuiSvgIcon-root{
+	color: black;
+}
+#right p{
+	color: black;
+}
+#left .css-i4bv87-MuiSvgIcon-root{
+	color: white;
+}
+#left p{
+	color: white;
 }
