@@ -38,6 +38,8 @@ export default function App() {
 	const [telefone, setTelefone] = useState('');
 	const [convidados, setConvidados] = useState([]);
 	const [convidado, setConvidado] = useState();
+	const [pessoa, setPessoa] = useState('');
+
 	const [i, setI] = useState(0);
 
 	function handleChange() {
