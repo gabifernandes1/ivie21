@@ -31,12 +31,13 @@
 	animation-iteration-count: infinite;
 	overflow-y: hidden;
 }
+.seta-noanimation {
+	height: 5vh;
+}
 #pagina2 {
 	overflow: hidden;
-
 	background-color: white;
 	width: 100vw;
-	position: absolute;
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center; */
@@ -44,6 +45,19 @@
 	align-items: center;
 	top: 0;
 	left: 0;
+}
+ #tel input{
+	width: 100%;
+	font-size: 1.4rem;
+	border: 0px solid;
+	text-align: center;
+	color: rgb(82, 82, 82);
+	font-family: 'Open Sans', sans-serif;
+	border-bottom: 	1px solid gray
+
+}
+#tel {
+	width: 70%;
 }
 @keyframes example {
 	0% {
@@ -128,22 +142,21 @@
 	align-items: center;
 } */
 #pagina4 {
-
-overflow-y: hidden;
-
+	overflow-y: hidden;
+	overflow: hidden;
 	width: 100vw;
 	position: absolute;
 	top: 0;
 	display: flex;
 	overflow-y: hidden;
 	justify-content: center;
+	height:90vh;
 	align-items: center;
 }
-#pagina4 #left {
-	
 
+#pagina4 #left {
 	background-color: black;
-	height:100vh;
+	height: 100%;
 	width: 50vw;
 	display: flex;
 	justify-content: center;
@@ -151,10 +164,8 @@ overflow-y: hidden;
 }
 #pagina4 #right {
 	background-color: white;
-	height:100vh;
+	height: 100%;
 	overflow-y: hidden;
-	
-
 	width: 50vw;
 	display: flex;
 	justify-content: center;
@@ -188,4 +199,21 @@ overflow-y: hidden;
 .css-vubbuv{
 	width: 2em !important;
 	height: 2em !important;
+}
+#loading {
+	background-color: black;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100vw;
+	top: 0;
+	opacity: 20%;
+}
+.CircularProgressbar .CircularProgressbar-path{
+	stroke: rgb(255, 255, 255) !important;
+}
+.CircularProgressbar .CircularProgressbar-trail{
+	stroke: none !important;
 }

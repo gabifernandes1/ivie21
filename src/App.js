@@ -7,23 +7,35 @@ import Individual from './individuall.png';
 import Seta from './seta.png';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
-import InputMask from 'react-input-mask';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
+import {
+	CircularProgressbar,
+	CircularProgressbarWithChildren,
+	buildStyles,
+} from 'react-circular-progressbar';
+import ChangingProgressProvider from './ChangingProgressProvider';
+import InputMask from 'react-input-mask';
+
+import 'react-circular-progressbar/dist/styles.css';
+
 export default function App() {
 	const [pagina1, setPagina1] = useState(true);
 	const [pagina2, setPagina2] = useState(false);
 	const [pagina3, setPagina3] = useState(false);
 	const [pagina4, setPagina4] = useState(false);
 	const [notFound, setNotFound] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [value, setValue] = useState(0);
 	const [nome, setNome] = useState('');
 	const [telefone, setTelefone] = useState('');
 	const [convidados, setConvidados] = useState([]);
 	const [convidado, setConvidado] = useState();
+	const [i, setI] = useState(0);
 
 	function handleChange() {
 		setPagina2(true);
@@ -34,10 +46,13 @@ export default function App() {
 		setPagina3(false);
 	}
 	function handleChange3() {
+		setLoading(true);
+
+		let tel = telefone.replace(/ /g, '').replace('-', '');
 		for (let i in convidados) {
 			if (
 				convidados[i].nome.toLowerCase() == nome.toLowerCase() &&
-				convidados[i].telefone == telefone
+				convidados[i].telefone == tel
 			) {
 				setConvidado(convidados[i]);
 				setPagina3(true);
@@ -49,6 +64,7 @@ export default function App() {
 				}, 3000);
 			}
 		}
+		setLoading(false);
 	}
 
 	useEffect(() => {
@@ -57,14 +73,31 @@ export default function App() {
 				.get('https://ivie21-server.herokuapp.com/getConvidados')
 				.then((response) => {
 					setConvidados(response.data);
-					console.log(response.data);
 				});
 		}
 		getData();
-	}, []);
+	}, [pagina2]);
 
 	return (
 		<div className="App">
+			{loading ? (
+				<div id="loading">
+					<div style={{ width: 50, height: 50 }}>
+						<ChangingProgressProvider values={[100, 0]}>
+							{(percentage) => (
+								<CircularProgressbar
+									styles={buildStyles({
+										rotation: (1 - percentage / 100) / 2,
+									})}
+									value={percentage}
+								/>
+							)}
+						</ChangingProgressProvider>
+					</div>
+				</div>
+			) : (
+				''
+			)}
 			{/* {convidados.length == 0 ? <p>oi</p> : <p>ooi</p>} */}
 			{pagina1 ? (
 				<ReactScrollWheelHandler
@@ -104,13 +137,21 @@ export default function App() {
 							/>
 
 							<p>Digite seu telefone:</p>
-							<TextField
+							<div id="tel">
+								<InputMask
+									mask=" 99 99999-9999"
+									placeholder="99 99999-9999"
+									onChange={(e) => setTelefone(e.target.value)}
+								/>
+							</div>
+
+							{/* <TextField
 								placeholder="(11) 99999-9999"
 								id="standard-basic"
 								variant="standard"
 								// value={telefone}
 								onChange={(e) => setTelefone(e.target.value)}
-							/>
+							/> */}
 							{notFound ? (
 								<p
 									style={{
@@ -129,7 +170,7 @@ export default function App() {
 							''
 						) : (
 							<div className="seta" onClick={handleChange3}>
-								<img className="seta-animation" src={Seta} height="30%" />
+								<img className="seta-noanimation" src={Seta} height="30%" />
 							</div>
 						)}
 					</div>
@@ -168,7 +209,9 @@ export default function App() {
 						{/* <img src={Logo} width="60%" />
 					<img src={qr} width="60%" /> */}
 						<img src={Individual} width="60%" />
-						<QRCode value={`${convidado._id}`} />
+						<br />
+						<QRCode size={200} value={`${convidado._id}`} />
+						<br />
 						<p>
 							Este é seu convite! <br />
 							Obrigatório apresentar documento com foto.
