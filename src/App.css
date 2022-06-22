@@ -23,12 +23,14 @@
 	align-items: flex-end;
 	padding-bottom: 10%;
 	justify-content: center;
+	overflow-y: hidden;
 }
 .seta-animation {
 	height: 5vh;
 	animation-name: example;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
+	overflow-y: hidden;
 }
 #pagina2 {
 	overflow-y: hidden;
@@ -57,6 +59,8 @@
 	}
 }
 #form {
+	overflow-y: hidden;
+
 	height: 50%;
 	display: flex;
 	flex-direction: column;
@@ -65,6 +69,8 @@
 	width: 100%;
 }
 #standard-basic {
+	overflow-y: hidden;
+
 	font-size: 1.35em;
 	width: 70vw;
 	display: flex;
@@ -73,6 +79,8 @@
 	color: rgb(78, 78, 78);
 }
 #form p {
+	overflow-y: hidden;
+
 	font-size: 1.4rem;
 	padding-top: 30px;
 	font-family: 'Open Sans', sans-serif;
@@ -93,6 +101,7 @@
 
 #pagina3 img {
 	margin-top: 20px;
+	overflow-y: hidden;
 }
 #pagina3 p {
 	font-family: 'Open Sans', sans-serif;
@@ -101,15 +110,16 @@
 	width: 80%;
 	text-align: center;
 	font-size: 0.9rem;
+	overflow-y: hidden;
 }
 .css-1x51dt5-MuiInputBase-input-MuiInput-input {
 	text-align: center;
 }
-.css-i4bv87-MuiSvgIcon-root{
+.css-i4bv87-MuiSvgIcon-root {
 	height: 20vh !important;
 	width: 10vw !important;
 }
-.css-i4bv87-MuiSvgIcon-root:hover{
+.css-i4bv87-MuiSvgIcon-root:hover {
 	background-color: transparent !important;
 }
 /* #pagina4 #option{
@@ -118,7 +128,7 @@
 	justify-content: center;
 	align-items: center;
 } */
-#pagina4{
+#pagina4 {
 	overflow-y: hidden;
 
 	height: 100%;
@@ -128,40 +138,35 @@
 	overflow-y: hidden;
 	justify-content: center;
 	align-items: center;
-	
 }
-#pagina4 #left{
+#pagina4 #left {
 	background-color: black;
 	height: 100%;
 	width: 50%;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;
-
-
+	overflow-y: hidden;
 }
-#pagina4 #right{
+#pagina4 #right {
 	background-color: white;
 	height: 100%;
 	width: 50%;
 	display: flex;
 	justify-content: center;
-	overflow: hidden;
-
+	overflow-y: hidden;
 }
 
-#pagina3 p{
-
+#pagina3 p {
 }
-#right .css-i4bv87-MuiSvgIcon-root{
+#right .css-i4bv87-MuiSvgIcon-root {
 	color: black;
 }
-#right p{
+#right p {
 	color: black;
 }
-#left .css-i4bv87-MuiSvgIcon-root{
+#left .css-i4bv87-MuiSvgIcon-root {
 	color: white;
 }
-#left p{
+#left p {
 	color: white;
 }
