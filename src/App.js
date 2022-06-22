@@ -214,6 +214,7 @@ export default function App() {
 					<div id="pagina3">
 						<img src={Individual} width="60%" />
 						<br />
+						<p>{convidado.nome.toUpperCase()}</p>
 						<QRCode size={170} value={`${convidado._id}`} />
 						<br />
 						<p>
