@@ -91,59 +91,49 @@ export default function App() {
 				''
 			)}
 			{pagina2 ? (
-				<ReactScrollWheelHandler
-					downHandler={() => {
-						handleChange3();
-					}}
-					customStyle={{
-						width: '150%',
-						height: '100vh',
-					}}
-				>
-					<Slide direction="up" in={pagina2} mountOnEnter unmountOnExit>
-						<div id="pagina2">
-							<img src={Logo} width="40%" />
-							<div id="form">
-								<p>Digite seu nome completo:</p>
-								<TextField
-									id="standard-basic"
-									variant="standard"
-									// value={nome}
-									onChange={(e) => setNome(e.target.value)}
-								/>
+				<Slide direction="up" in={pagina2} mountOnEnter unmountOnExit>
+					<div id="pagina2">
+						<img src={Logo} width="40%" />
+						<div id="form">
+							<p>Digite seu nome completo:</p>
+							<TextField
+								id="standard-basic"
+								variant="standard"
+								// value={nome}
+								onChange={(e) => setNome(e.target.value)}
+							/>
 
-								<p>Digite seu telefone:</p>
-								<TextField
-									placeholder="(11) 99999-9999"
-									id="standard-basic"
-									variant="standard"
-									// value={telefone}
-									onChange={(e) => setTelefone(e.target.value)}
-								/>
-								{notFound ? (
-									<p
-										style={{
-											position: 'absolute',
-											color: 'red',
-											bottom: '30vh',
-										}}
-									>
-										Convidado não encontrado. Tente novamente!
-									</p>
-								) : (
-									''
-								)}
-							</div>
-							{pagina4 ? (
-								''
+							<p>Digite seu telefone:</p>
+							<TextField
+								placeholder="(11) 99999-9999"
+								id="standard-basic"
+								variant="standard"
+								// value={telefone}
+								onChange={(e) => setTelefone(e.target.value)}
+							/>
+							{notFound ? (
+								<p
+									style={{
+										position: 'absolute',
+										color: 'red',
+										bottom: '30vh',
+									}}
+								>
+									Convidado não encontrado. Tente novamente!
+								</p>
 							) : (
-								<div className="seta" onClick={handleChange3}>
-									<img className="seta-animation" src={Seta} height="30%" />
-								</div>
+								''
 							)}
 						</div>
-					</Slide>
-				</ReactScrollWheelHandler>
+						{pagina4 ? (
+							''
+						) : (
+							<div className="seta" onClick={handleChange3}>
+								<img className="seta-animation" src={Seta} height="30%" />
+							</div>
+						)}
+					</div>
+				</Slide>
 			) : (
 				''
 			)}
