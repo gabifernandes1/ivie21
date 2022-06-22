@@ -160,9 +160,11 @@ export default function App() {
 										color: 'red',
 										bottom: '10vh',
 										textAlign: 'center',
+										fontSize: '1.2em',
 									}}
 								>
-									Convidado não encontrado. Tente novamente!
+									Convidado não encontrado. <br />
+									Tente novamente!
 								</p>
 							) : (
 								''
