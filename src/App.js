@@ -127,7 +127,7 @@ export default function App() {
 			{pagina2 ? (
 				<Slide direction="up" in={pagina2} mountOnEnter unmountOnExit>
 					<div id="pagina2">
-						<img src={Logo} width="40%" />
+						<img src={Logo} width="50%" />
 						<div id="form">
 							<p>Digite seu nome completo:</p>
 							<TextField
@@ -158,7 +158,8 @@ export default function App() {
 									style={{
 										position: 'absolute',
 										color: 'red',
-										bottom: '30vh',
+										bottom: '10vh',
+										textAlign: 'center',
 									}}
 								>
 									Convidado não encontrado. Tente novamente!
