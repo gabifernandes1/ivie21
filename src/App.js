@@ -29,7 +29,7 @@ export default function App() {
 	const [pagina5, setPagina5] = useState(false);
 	const [notFound, setNotFound] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const [value, setValue] = useState(0);
+
 	const [nome, setNome] = useState('');
 	const [telefone, setTelefone] = useState('');
 	const [convidados, setConvidados] = useState([]);
