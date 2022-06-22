@@ -54,7 +54,7 @@ export default function App() {
 	useEffect(() => {
 		async function getData() {
 			await axios
-				.get('http://localhost:8000/getConvidados')
+				.get('https://ivie21-server.herokuapp.com/getConvidados')
 				.then((response) => {
 					setConvidados(response.data);
 					console.log(response.data);
