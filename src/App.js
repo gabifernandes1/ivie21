@@ -214,7 +214,7 @@ export default function App() {
 					<div id="pagina3">
 						<img src={Individual} width="60%" />
 						<br />
-						<QRCode size={200} value={`${convidado._id}`} />
+						<QRCode size={170} value={`${convidado._id}`} />
 						<br />
 						<p>
 							Este é seu convite! <br />
