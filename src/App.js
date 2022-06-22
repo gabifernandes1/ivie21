@@ -2,24 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Fundo from './principal.png';
 import Logo from './logo2.png';
-import qr from './qr.png';
+
 import Individual from './individuall.png';
 import Seta from './seta.png';
 import LogoPreto from './logoPreto.png';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
+
 import IconButton from '@mui/material/IconButton';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
 
-import {
-	CircularProgressbar,
-	CircularProgressbarWithChildren,
-	buildStyles,
-} from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import ChangingProgressProvider from './ChangingProgressProvider';
 import InputMask from 'react-input-mask';
 
@@ -38,9 +34,6 @@ export default function App() {
 	const [telefone, setTelefone] = useState('');
 	const [convidados, setConvidados] = useState([]);
 	const [convidado, setConvidado] = useState();
-	const [pessoa, setPessoa] = useState('');
-
-	const [i, setI] = useState(0);
 
 	function handleChange() {
 		setPagina2(true);
@@ -79,11 +72,9 @@ export default function App() {
 
 	useEffect(() => {
 		async function getData() {
-			await axios
-				.get('https://ivie21-server.herokuapp.com/getConvidados')
-				.then((response) => {
-					setConvidados(response.data);
-				});
+			await axios.get(`${process.env.REACT_APP_URL}`).then((response) => {
+				setConvidados(response.data);
+			});
 		}
 		getData();
 	}, [pagina2]);
