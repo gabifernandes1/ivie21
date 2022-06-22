@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Fundo from './inicio.png';
+import Fundo from './principal.png';
 import Logo from './logo2.png';
 import qr from './qr.png';
 import Individual from './individuall.png';
@@ -13,6 +13,7 @@ import Fingerprint from '@mui/icons-material/Fingerprint';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
+
 import {
 	CircularProgressbar,
 	CircularProgressbarWithChildren,
@@ -110,7 +111,7 @@ export default function App() {
 					}}
 				>
 					<div className="logo">
-						<img src={Fundo} width="60%" />
+						<img src={Fundo} width="65%" />
 					</div>
 					{pagina2 ? (
 						''
