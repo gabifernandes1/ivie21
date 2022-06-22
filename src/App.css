@@ -153,6 +153,18 @@
 	height:90vh;
 	align-items: center;
 }
+#pagina4 {
+	overflow-y: hidden;
+	overflow: hidden;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	display: flex;
+	overflow-y: hidden;
+	justify-content: center;
+	height:90vh;
+	align-items: center;
+}
 
 #pagina4 #left {
 	background-color: black;
@@ -171,7 +183,26 @@
 	justify-content: center;
 	overflow: hidden;
 }
+#pagina5 {
 
+	background-color: black;
+	overflow-y: hidden;
+	overflow: hidden;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	display: flex;
+	overflow-y: hidden;
+	flex-direction: column;
+	justify-content: center;
+	height:90vh;
+	align-items: center;
+	color: white;
+	font-size: 1.5rem;
+}
+#pagina5 p{
+	margin-top: 10vh;
+}
 #pagina3 p {
 }
 #right .css-i4bv87-MuiSvgIcon-root {

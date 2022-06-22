@@ -5,6 +5,7 @@ import Logo from './logo2.png';
 import qr from './qr.png';
 import Individual from './individuall.png';
 import Seta from './seta.png';
+import LogoPreto from './logoPreto.png';
 import Slide from '@mui/material/Slide';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -29,6 +30,7 @@ export default function App() {
 	const [pagina2, setPagina2] = useState(false);
 	const [pagina3, setPagina3] = useState(false);
 	const [pagina4, setPagina4] = useState(false);
+	const [pagina5, setPagina5] = useState(false);
 	const [notFound, setNotFound] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [value, setValue] = useState(0);
@@ -42,10 +44,15 @@ export default function App() {
 		setPagina2(true);
 		setPagina1(false);
 	}
-	function handleChange2() {
+	function vai() {
 		setPagina4(true);
 		setPagina3(false);
 	}
+	function naoVai() {
+		setPagina5(true);
+		setPagina3(false);
+	}
+
 	function handleChange3() {
 		setLoading(true);
 
@@ -146,21 +153,14 @@ export default function App() {
 								/>
 							</div>
 
-							{/* <TextField
-								placeholder="(11) 99999-9999"
-								id="standard-basic"
-								variant="standard"
-								// value={telefone}
-								onChange={(e) => setTelefone(e.target.value)}
-							/> */}
 							{notFound ? (
 								<p
 									style={{
 										position: 'absolute',
 										color: 'red',
-										bottom: '10vh',
+										bottom: '5vh',
 										textAlign: 'center',
-										fontSize: '1.2em',
+										fontSize: '1.2rem',
 									}}
 								>
 									Convidado não encontrado. <br />
@@ -185,7 +185,7 @@ export default function App() {
 			{pagina3 ? (
 				<Slide direction="up" in={pagina3} mountOnEnter unmountOnExit>
 					<div id="pagina4">
-						<div id="left">
+						<div id="left" onClick={naoVai}>
 							<IconButton aria-label="fingerprint" color="success" disabled>
 								<div id="option">
 									<Fingerprint />
@@ -193,7 +193,7 @@ export default function App() {
 								</div>
 							</IconButton>
 						</div>
-						<div id="right" onClick={handleChange2}>
+						<div id="right" onClick={vai}>
 							<IconButton aria-label="fingerprint" disabled>
 								<div id="option">
 									<Fingerprint />
@@ -210,8 +210,6 @@ export default function App() {
 			{pagina4 ? (
 				<Slide direction="up" in={pagina4} mountOnEnter unmountOnExit>
 					<div id="pagina3">
-						{/* <img src={Logo} width="60%" />
-					<img src={qr} width="60%" /> */}
 						<img src={Individual} width="60%" />
 						<br />
 						<QRCode size={200} value={`${convidado._id}`} />
@@ -220,6 +218,17 @@ export default function App() {
 							Este é seu convite! <br />
 							Obrigatório apresentar documento com foto.
 						</p>
+					</div>
+				</Slide>
+			) : (
+				''
+			)}
+
+			{pagina5 ? (
+				<Slide direction="up" in={pagina5} mountOnEnter unmountOnExit>
+					<div id="pagina5">
+						<img src={LogoPreto} width="70%" />
+						<p>Obrigada pela confirmação!</p>
 					</div>
 				</Slide>
 			) : (
