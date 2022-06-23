@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
+    "@capacitor/share": "^1.1.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@material/progress-indicator": "^14.0.0",
@@ -19,10 +20,12 @@
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.32.1",
+    "react-image-gallery": "^1.2.8",
     "react-input-mask": "^2.0.4",
     "react-qr-code": "^2.0.7",
     "react-scripts": "5.0.1",
     "react-scroll-wheel-handler": "^2.2.0",
+    "react-web-share": "^1.1.6",
     "timers-browserify": "^2.0.12",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"

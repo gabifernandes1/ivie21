@@ -1277,6 +1277,11 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@capacitor/share@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/share/-/share-1.1.2.tgz#7e35c2c3bccc9955e852d3dd401afe7bd5a69b7e"
+  integrity sha512-FUTdjA7MAiD1tkGVZ+C3gs7a4fyEhXojDO2HkZ954oupG1cQ51dEJ1xTNnR9BAmCwUJO4sa91cxy7SMyCDPuGg==
+
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-12.0.0.tgz"
@@ -7852,6 +7857,11 @@ react-hook-form@^7.32.1:
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.32.1.tgz"
   integrity sha512-A0bsgZZUnGdG68sXLBNMN7zRYKbYc/ESjDkjrJZ8PZ8/96EQ0IwMfYY3wpopt+yn2+Mm3APEUkw+JdjYQSRVJA==
 
+react-image-gallery@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-1.2.8.tgz#8f41b0ade1c115a4f34621771c182af33d2d9a62"
+  integrity sha512-7KbWcWChUMHRGyJHA/eH3injWF9/2WTlQXjV6fym1DqwrINSVIh1hLiqmujh/XANstW+osqSu5WFKKPy2F2gbA==
+
 react-input-mask@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-2.0.4.tgz#9ade5cf8196f4a856dbf010820fe75a795f3eb14"
@@ -7957,6 +7967,11 @@ react-transition-group@^4.4.2:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-web-share@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-web-share/-/react-web-share-1.1.6.tgz#ac99ebe2bc5e291bb3af2d5ffcf533fcbede8aba"
+  integrity sha512-IttmjG4DlIPEWNnS3RBccaPo6zFs2DNYk+92YjW1iPp0L9h0hXCaellxIQx8xhLepLFoiVjOMM/MNbLSZUzzsw==
 
 react@^18.2.0:
   version "18.2.0"

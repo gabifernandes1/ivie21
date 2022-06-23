@@ -42,32 +42,49 @@ export default function App() {
 	function vai() {
 		setPagina4(true);
 		setPagina3(false);
+		// POST BANCO DE DADOS
 	}
 	function naoVai() {
 		setPagina5(true);
 		setPagina3(false);
+		// POST BANCO DE DADOS
 	}
 
-	function handleChange3() {
+	async function handleChange3() {
 		setLoading(true);
 
 		let tel = telefone.replace(/ /g, '').replace('-', '');
+		console.log(nome);
+
 		for (let i in convidados) {
-			if (
-				convidados[i].nome.toLowerCase() == nome.toLowerCase() &&
-				convidados[i].telefone == tel
-			) {
+			if (nome == 'ivie24072001') {
+				console.log('????');
+				//POST CRIAR CONVIDADO
 				setConvidado(convidados[i]);
-				setPagina3(true);
-				setPagina2(false);
+
+				axios
+					.post(`http://localhost:8000/adicionar`, {
+						nome: 'vip',
+					})
+					.then(setPagina3(true), setPagina2(false), setLoading(false));
 			} else {
-				setNotFound(true);
-				setTimeout(() => {
-					setNotFound(false);
-				}, 3000);
+				if (
+					convidados[i].nome.toLowerCase() == nome.toLowerCase() &&
+					convidados[i].telefone == tel
+				) {
+					setConvidado(convidados[i]);
+					setPagina3(true);
+					setPagina2(false);
+					setLoading(false);
+				} else {
+					setLoading(false);
+					setNotFound(true);
+					setTimeout(() => {
+						setNotFound(false);
+					}, 3000);
+				}
 			}
 		}
-		setLoading(false);
 	}
 
 	useEffect(() => {
@@ -77,7 +94,7 @@ export default function App() {
 			});
 		}
 		getData();
-	}, [pagina2]);
+	}, [pagina2, convidado]);
 
 	return (
 		<div className="App">
