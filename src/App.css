@@ -248,3 +248,7 @@
 .CircularProgressbar .CircularProgressbar-trail{
 	stroke: none !important;
 }
+
+#img2{
+max-width: 300px;
+  }

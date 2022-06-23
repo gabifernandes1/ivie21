@@ -154,7 +154,7 @@ export default function App() {
 			{pagina2 ? (
 				<Slide direction="up" in={pagina2} mountOnEnter unmountOnExit>
 					<div id="pagina2">
-						<img src={Logo} width="50%" />
+						<img id="img2" src={Logo} width="50%" />
 						<div id="form">
 							<p>Digite seu nome completo:</p>
 							<TextField
@@ -231,7 +231,7 @@ export default function App() {
 			{pagina4 ? (
 				<Slide direction="up" in={pagina4} mountOnEnter unmountOnExit>
 					<div id="pagina3">
-						<img src={Individual} width="60%" />
+						<img src={Individual} width="60%" id="img2" />
 						<br />
 						<p style={{ fontSize: '1.1rem' }}>{convidado.nome.toUpperCase()}</p>
 						<QRCode
@@ -251,7 +251,7 @@ export default function App() {
 			{pagina5 ? (
 				<Slide direction="up" in={pagina5} mountOnEnter unmountOnExit>
 					<div id="pagina5">
-						<img src={LogoPreto} width="70%" />
+						<img src={LogoPreto} width="70%" id="img2" />
 						<p>Obrigada pela confirmação!</p>
 					</div>
 				</Slide>
