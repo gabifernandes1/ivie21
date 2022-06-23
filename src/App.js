@@ -223,7 +223,10 @@ export default function App() {
 						<img src={Individual} width="60%" />
 						<br />
 						<p style={{ fontSize: '1.1rem' }}>{convidado.nome.toUpperCase()}</p>
-						<QRCode size={170} value={`${convidado._id}`} />
+						<QRCode
+							size={170}
+							value={`${process.env.REACT_APP_URL6}${convidado._id}`}
+						/>
 						<p>
 							Este é seu convite! <br />
 							Obrigatório apresentar documento com foto.
