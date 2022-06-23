@@ -59,29 +59,44 @@ export default function App() {
 
 		let tel = telefone.replace(/ /g, '').replace('-', '');
 		for (let i in convidados) {
-			if (nome == VIP) {
-				setConvidado(convidados[i]);
-
-				await axios
-					.post(`${process.env.REACT_APP_URL2}`, {
-						nome: 'vip',
-					})
-					.then(setPagina3(true), setPagina2(false), setLoading(false));
+			if (
+				nome == '' ||
+				telefone == '' ||
+				nome == undefined ||
+				telefone == undefined
+			) {
+				setLoading(false);
+				setNotFound(true);
+				setTimeout(() => {
+					setNotFound(false);
+				}, 3000);
 			} else {
-				if (
-					convidados[i].nome.toLowerCase() == nome.toLowerCase() &&
-					convidados[i].telefone == tel
-				) {
+				if (nome == VIP) {
 					setConvidado(convidados[i]);
-					setPagina3(true);
-					setPagina2(false);
-					setLoading(false);
+					await axios
+						.post(`${process.env.REACT_APP_URL2}`, {
+							nome: 'vip',
+						})
+						.then(setPagina3(true), setPagina2(false), setLoading(false));
 				} else {
-					setLoading(false);
-					setNotFound(true);
-					setTimeout(() => {
-						setNotFound(false);
-					}, 3000);
+					let nomeLista = convidados[i].nome;
+					let nomeDigitado = nome;
+					if (
+						convidados[i].nome !== undefined &&
+						nomeLista.toLowerCase() == nomeDigitado.toLowerCase() &&
+						convidados[i].telefone == tel
+					) {
+						setConvidado(convidados[i]);
+						setPagina3(true);
+						setPagina2(false);
+						setLoading(false);
+					} else {
+						setLoading(false);
+						setNotFound(true);
+						setTimeout(() => {
+							setNotFound(false);
+						}, 3000);
+					}
 				}
 			}
 		}
