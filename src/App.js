@@ -50,7 +50,7 @@ export default function App() {
 		let result = await axios
 			.post(`${process.env.REACT_APP_URL3}`, data)
 			.then(setPagina5(true), setPagina3(false), console.log(data));
-		console.log(result, res);
+		console.log(result, 'res');
 	}
 
 	const VIP = process.env.REACT_APP_VIP;
