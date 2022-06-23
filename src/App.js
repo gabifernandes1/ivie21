@@ -39,16 +39,18 @@ export default function App() {
 		setPagina2(true);
 		setPagina1(false);
 	}
+
 	async function vai() {
 		let data = { data: convidado, confirmacao: 'S' };
 		await axios
 			.post(`${process.env.REACT_APP_URL3}`, data)
 			.then(setPagina4(true), setPagina3(false));
 	}
+
 	async function naoVai() {
 		let data = { data: convidado, confirmacao: 'N' };
 		await axios
-			.post('https://ivie21-server.herokuapp.com/confirmacao', data)
+			.post(`${process.env.REACT_APP_URL3}`, data)
 			.then(setPagina5(true), setPagina3(false));
 	}
 
