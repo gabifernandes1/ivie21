@@ -53,7 +53,6 @@ export default function App() {
 	}
 
 	const VIP = process.env.REACT_APP_VIP;
-
 	async function handleChange3() {
 		setLoading(true);
 
