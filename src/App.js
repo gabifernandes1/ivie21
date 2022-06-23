@@ -80,13 +80,7 @@ export default function App() {
 						})
 						.then(setPagina3(true), setPagina2(false), setLoading(false));
 				} else {
-					let nomeLista = convidados[i].nome;
-					let nomeDigitado = nome;
-					if (
-						convidados[i].nome !== undefined &&
-						nomeLista.toLowerCase() == nomeDigitado.toLowerCase() &&
-						convidados[i].telefone == tel
-					) {
+					if (convidados[i].telefone == tel) {
 						setConvidado(convidados[i]);
 						setPagina3(true);
 						setPagina2(false);
