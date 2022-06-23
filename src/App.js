@@ -60,7 +60,7 @@ export default function App() {
 			if (nome == VIP) {
 				setConvidado(convidados[i]);
 
-				axios
+				await axios
 					.post(`${process.env.REACT_APP_URL2}`, {
 						nome: 'vip',
 					})
