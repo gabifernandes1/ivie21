@@ -39,15 +39,17 @@ export default function App() {
 		setPagina2(true);
 		setPagina1(false);
 	}
-	function vai() {
-		setPagina4(true);
-		setPagina3(false);
-		// POST BANCO DE DADOS
+	async function vai() {
+		let data = { data: convidado, confirmacao: 'S' };
+		await axios
+			.post(`${process.env.REACT_APP_URL3}`, data)
+			.then(setPagina4(true), setPagina3(false));
 	}
-	function naoVai() {
-		setPagina5(true);
-		setPagina3(false);
-		// POST BANCO DE DADOS
+	async function naoVai() {
+		let data = { data: convidado, confirmacao: 'N' };
+		await axios
+			.post(`${process.env.REACT_APP_URL3}`, data)
+			.then(setPagina5(true), setPagina3(false));
 	}
 
 	const VIP = process.env.REACT_APP_VIP;
