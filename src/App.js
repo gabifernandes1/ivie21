@@ -60,39 +60,39 @@ export default function App() {
 
 		let tel = telefone.replace(/ /g, '').replace('-', '');
 		for (let i in convidados) {
-			if (
-				nome == '' ||
-				telefone == '' ||
-				nome == undefined ||
-				telefone == undefined
-			) {
-				setLoading(false);
-				setNotFound(true);
-				setTimeout(() => {
-					setNotFound(false);
-				}, 3000);
+			// if (
+			// 	nome == '' ||
+			// 	telefone == '' ||
+			// 	nome == undefined ||
+			// 	telefone == undefined
+			// ) {
+			// 	setLoading(false);
+			// 	setNotFound(true);
+			// 	setTimeout(() => {
+			// 		setNotFound(false);
+			// 	}, 3000);
+			// } else {
+			if (nome == VIP) {
+				setConvidado(convidados[i]);
+				await axios
+					.post(`${process.env.REACT_APP_URL2}`, {
+						nome: 'vip',
+					})
+					.then(setPagina3(true), setPagina2(false), setLoading(false));
 			} else {
-				if (nome == VIP) {
+				if (convidados[i].telefone == tel) {
 					setConvidado(convidados[i]);
-					await axios
-						.post(`${process.env.REACT_APP_URL2}`, {
-							nome: 'vip',
-						})
-						.then(setPagina3(true), setPagina2(false), setLoading(false));
+					setPagina3(true);
+					setPagina2(false);
+					setLoading(false);
 				} else {
-					if (convidados[i].telefone == tel) {
-						setConvidado(convidados[i]);
-						setPagina3(true);
-						setPagina2(false);
-						setLoading(false);
-					} else {
-						setLoading(false);
-						setNotFound(true);
-						setTimeout(() => {
-							setNotFound(false);
-						}, 3000);
-					}
+					setLoading(false);
+					setNotFound(true);
+					setTimeout(() => {
+						setNotFound(false);
+					}, 3000);
 				}
+				// }
 			}
 		}
 	}
@@ -172,7 +172,6 @@ export default function App() {
 									onChange={(e) => setTelefone(e.target.value)}
 								/>
 							</div>
-
 							{notFound ? (
 								<p
 									style={{
