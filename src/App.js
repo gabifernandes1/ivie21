@@ -50,20 +50,17 @@ export default function App() {
 		// POST BANCO DE DADOS
 	}
 
+	const VIP = process.env.REACT_APP_VIP;
+
 	async function handleChange3() {
 		setLoading(true);
 
 		let tel = telefone.replace(/ /g, '').replace('-', '');
-		console.log(nome);
-
 		for (let i in convidados) {
-			if (nome == 'ivie24072001') {
-				console.log('????');
-				//POST CRIAR CONVIDADO
+			if (nome == VIP) {
 				setConvidado(convidados[i]);
-
 				axios
-					.post(`http://localhost:8000/adicionar`, {
+					.post(`${process.env.REACT_APP_URL2}`, {
 						nome: 'vip',
 					})
 					.then(setPagina3(true), setPagina2(false), setLoading(false));
