@@ -178,7 +178,7 @@ export default function App() {
 									style={{
 										position: 'absolute',
 										color: 'red',
-										bottom: '5vh',
+										// bottom: '5vh',
 										textAlign: 'center',
 										fontSize: '1.2rem',
 									}}
