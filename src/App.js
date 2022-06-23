@@ -47,10 +47,9 @@ export default function App() {
 	}
 	async function naoVai() {
 		let data = { data: convidado, confirmacao: 'N' };
-		let result = await axios
-			.post(`${process.env.REACT_APP_URL3}`, data)
-			.then(setPagina5(true), setPagina3(false), console.log(data));
-		console.log(result, 'res');
+		await axios
+			.post('https://ivie21-server.herokuapp.com/confirmacao', data)
+			.then(setPagina5(true), setPagina3(false));
 	}
 
 	const VIP = process.env.REACT_APP_VIP;
