@@ -68,34 +68,20 @@ export default function App() {
 					})
 					.then(setPagina3(true), setPagina2(false), setLoading(false));
 			} else {
-				if (
-					nome == undefined ||
-					nome == '' ||
-					telefone == '' ||
-					telefone == undefined
-				) {
+				if (convidados[i].telefone == tel) {
+					setConvidado(convidados[i]);
+					setPagina3(true);
+					setPagina2(false);
+					setLoading(false);
+				} else {
 					setLoading(false);
 					setNotFound(true);
 					setTimeout(() => {
 						setNotFound(false);
 					}, 3000);
-				} else {
-					if (convidados[i].telefone == tel) {
-						setConvidado(convidados[i]);
-						setPagina3(true);
-						setPagina2(false);
-						setLoading(false);
-					} else {
-						setLoading(false);
-						setNotFound(true);
-						setTimeout(() => {
-							setNotFound(false);
-						}, 3000);
-					}
 				}
 			}
 		}
-		setLoading(false);
 	}
 
 	useEffect(() => {
