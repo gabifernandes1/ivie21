@@ -57,10 +57,9 @@ export default function App() {
 	const VIP = process.env.REACT_APP_VIP;
 	async function handleChange3() {
 		setLoading(true);
+		let tel = undefined;
 		if (telefone) {
-			let tel = telefone.replace(/ /g, '').replace('-', '');
-		} else {
-			telefone == undefined;
+			tel = telefone.replace(/ /g, '').replace('-', '');
 		}
 		for (let i in convidados) {
 			if (nome !== undefined && nome !== '' && nome == VIP) {
