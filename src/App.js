@@ -57,8 +57,11 @@ export default function App() {
 	const VIP = process.env.REACT_APP_VIP;
 	async function handleChange3() {
 		setLoading(true);
-
-		let tel = telefone.replace(/ /g, '').replace('-', '');
+		if (telefone) {
+			let tel = telefone.replace(/ /g, '').replace('-', '');
+		} else {
+			telefone == undefined;
+		}
 		for (let i in convidados) {
 			if (nome !== undefined && nome !== '' && nome == VIP) {
 				setConvidado(convidados[i]);
@@ -68,11 +71,13 @@ export default function App() {
 					})
 					.then(setPagina3(true), setPagina2(false), setLoading(false));
 			} else {
-				if (convidados[i].telefone == tel && nome) {
-					setConvidado(convidados[i]);
-					setPagina3(true);
-					setPagina2(false);
-					setLoading(false);
+				if (nome && tel) {
+					if (convidados[i].telefone == tel && nome) {
+						setConvidado(convidados[i]);
+						setPagina3(true);
+						setPagina2(false);
+						setLoading(false);
+					}
 				} else {
 					setLoading(false);
 					setNotFound(true);
