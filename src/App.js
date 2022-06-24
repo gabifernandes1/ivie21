@@ -60,7 +60,7 @@ export default function App() {
 
 		let tel = telefone.replace(/ /g, '').replace('-', '');
 		for (let i in convidados) {
-			if (nome == VIP) {
+			if (nome !== undefined && nome !== '' && nome == VIP) {
 				setConvidado(convidados[i]);
 				await axios
 					.post(`${process.env.REACT_APP_URL2}`, {
