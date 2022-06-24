@@ -68,7 +68,7 @@ export default function App() {
 					})
 					.then(setPagina3(true), setPagina2(false), setLoading(false));
 			} else {
-				if (convidados[i].telefone == tel) {
+				if (convidados[i].telefone == tel && nome) {
 					setConvidado(convidados[i]);
 					setPagina3(true);
 					setPagina2(false);
