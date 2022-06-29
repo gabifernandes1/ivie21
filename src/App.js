@@ -58,6 +58,9 @@ export default function App() {
 	async function handleChange3() {
 		setLoading(true);
 		let tel = undefined;
+		if (telefone !== undefined && telefone !== '') {
+			tel = telefone.replace(/ /g, '').replace('-', '');
+		}
 		for (let i in convidados) {
 			if (nome == VIP) {
 				setConvidado(convidados[i]);
@@ -87,9 +90,6 @@ export default function App() {
 					setNotFound(false);
 				}, 3000);
 			}
-		}
-		if (telefone !== undefined && telefone !== '') {
-			tel = telefone.replace(/ /g, '').replace('-', '');
 		}
 	}
 
