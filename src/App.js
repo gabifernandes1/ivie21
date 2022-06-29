@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Fundo from './principal.png';
+import Fundo from './ivie21.png';
 import Logo from './logo2.png';
 
 import Individual from './individuall.png';
@@ -237,7 +237,7 @@ export default function App() {
 			{pagina4 ? (
 				<Slide direction="up" in={pagina4} mountOnEnter unmountOnExit>
 					<div id="pagina3">
-						<img src={Individual} width="60%" id="img2" />
+						<img src={Fundo} width="60%" id="img2" />
 						<br />
 						<p style={{ fontSize: '1.1rem' }}>
 							{convidado ? convidado.nome.toUpperCase() : 'VIP'}
