@@ -66,11 +66,18 @@ export default function App() {
 
 			let novo = await axios.post(`${process.env.REACT_APP_URL2}`, {
 				nome: 'vip',
+				vou: '',
+				ENTROU: 'N',
 			});
 
 			setPagina3(true);
 			setPagina2(false);
-			setConvidado({ _id: novo.data.insertedId, nome: 'VIP' });
+			setConvidado({
+				_id: novo.data.insertedId,
+				nome: 'vip',
+				vou: '',
+				ENTROU: 'N',
+			});
 			setLoading(false);
 		}
 		for (let i in convidados) {
