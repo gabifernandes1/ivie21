@@ -145,7 +145,7 @@ export default function App() {
 					}}
 				>
 					<div className="logo">
-						<img src={Fundo} width="65%" />
+						<img src={Fundo} width="60%" />
 					</div>
 					{pagina2 ? (
 						''
@@ -237,7 +237,7 @@ export default function App() {
 			{pagina4 ? (
 				<Slide direction="up" in={pagina4} mountOnEnter unmountOnExit>
 					<div id="pagina3">
-						<img src={Fundo} width="60%" id="img2" />
+						<img src={Fundo} width="50%" id="img2" />
 						<br />
 						<p style={{ fontSize: '1.1rem' }}>
 							{convidado ? convidado.nome.toUpperCase() : 'VIP'}
