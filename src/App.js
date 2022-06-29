@@ -61,15 +61,20 @@ export default function App() {
 		if (telefone !== undefined && telefone !== '') {
 			tel = telefone.replace(/ /g, '').replace('-', '');
 		}
+		if (nome == VIP) {
+			setLoading(true);
+
+			let novo = await axios.post(`${process.env.REACT_APP_URL2}`, {
+				nome: 'vip',
+			});
+
+			setPagina3(true);
+			setPagina2(false);
+			setConvidado({ _id: novo.data.insertedId, nome: 'VIP' });
+			setLoading(false);
+		}
 		for (let i in convidados) {
-			if (nome == VIP) {
-				setConvidado(convidados[i]);
-				await axios
-					.post(`${process.env.REACT_APP_URL2}`, {
-						nome: 'vip',
-					})
-					.then(setPagina3(true), setPagina2(false), setLoading(false));
-			} else if (tel) {
+			if (tel) {
 				if (convidados[i].telefone == tel) {
 					setLoading(false);
 					setConvidado(convidados[i]);
@@ -227,7 +232,9 @@ export default function App() {
 					<div id="pagina3">
 						<img src={Individual} width="60%" id="img2" />
 						<br />
-						<p style={{ fontSize: '1.1rem' }}>{convidado.nome.toUpperCase()}</p>
+						<p style={{ fontSize: '1.1rem' }}>
+							{convidado ? convidado.nome.toUpperCase() : 'VIP'}
+						</p>
 						<QRCode
 							size={170}
 							value={`${process.env.REACT_APP_URL6}${convidado._id}`}
