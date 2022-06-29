@@ -58,33 +58,38 @@ export default function App() {
 	async function handleChange3() {
 		setLoading(true);
 		let tel = undefined;
-		if (telefone) {
-			tel = telefone.replace(/ /g, '').replace('-', '');
-		}
 		for (let i in convidados) {
-			if (nome !== undefined && nome !== '' && nome == VIP) {
+			if (nome == VIP) {
 				setConvidado(convidados[i]);
 				await axios
 					.post(`${process.env.REACT_APP_URL2}`, {
 						nome: 'vip',
 					})
 					.then(setPagina3(true), setPagina2(false), setLoading(false));
-			} else {
-				if (nome && tel) {
-					if (convidados[i].telefone == tel && nome) {
-						setConvidado(convidados[i]);
-						setPagina3(true);
-						setPagina2(false);
-						setLoading(false);
-					}
+			} else if (tel) {
+				if (convidados[i].telefone == tel) {
+					setLoading(false);
+					setConvidado(convidados[i]);
+					setPagina3(true);
+					setPagina2(false);
 				} else {
 					setLoading(false);
+					console.log('???');
 					setNotFound(true);
 					setTimeout(() => {
 						setNotFound(false);
 					}, 3000);
 				}
+			} else {
+				setLoading(false);
+				setNotFound(true);
+				setTimeout(() => {
+					setNotFound(false);
+				}, 3000);
 			}
+		}
+		if (telefone !== undefined && telefone !== '') {
+			tel = telefone.replace(/ /g, '').replace('-', '');
 		}
 	}
 
@@ -95,7 +100,7 @@ export default function App() {
 			});
 		}
 		getData();
-	}, [pagina2, convidado]);
+	}, []);
 
 	return (
 		<div className="App">
