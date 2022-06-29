@@ -237,7 +237,7 @@ export default function App() {
 			{pagina4 ? (
 				<Slide direction="up" in={pagina4} mountOnEnter unmountOnExit>
 					<div id="pagina3">
-						<img src={Fundo} width="40%" id="img2" />
+						<img src={Fundo} width="45%" id="img2" />
 						<br />
 						<p style={{ fontSize: '1.1rem' }}>
 							{convidado ? convidado.nome.toUpperCase() : 'VIP'}
@@ -246,7 +246,7 @@ export default function App() {
 							size={170}
 							value={`${process.env.REACT_APP_URL6}${convidado._id}`}
 						/>
-						<p>
+						<p style={{ fontSize: '0.8rem' }}>
 							Este é seu convite! <br />
 							Obrigatório apresentar documento com foto.
 						</p>
