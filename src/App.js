@@ -77,7 +77,6 @@ export default function App() {
 					setPagina2(false);
 				} else {
 					setLoading(false);
-					console.log('???');
 					setNotFound(true);
 					setTimeout(() => {
 						setNotFound(false);
@@ -173,7 +172,7 @@ export default function App() {
 									style={{
 										position: 'absolute',
 										color: 'red',
-										// bottom: '5vh',
+										bottom: '1vh',
 										textAlign: 'center',
 										fontSize: '1.2rem',
 									}}
